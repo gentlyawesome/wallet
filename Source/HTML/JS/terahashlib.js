@@ -18,16 +18,16 @@ function GetHashFromSeqAddr(r,o,a,e,t)
         var n = shaarrblock2(r, o, a);
         return {Hash:n, PowHash:n, Hash1:n, Hash2:n};
     }
-    var i = ReadUintFromArr(o, 0), A = ReadUintFromArr(o, 6), l = ReadUintFromArr(o, 12), s = ReadUintFromArr(o, 18), u = ReadUint16FromArr(o,
-    24), h = ReadUint16FromArr(o, 26), f = GetHash(r, ReadUint32FromArr(e || o, 28), a, i, A, l, s, u, h);
+    var i = ReadUintFromArr(o, 0), l = ReadUintFromArr(o, 6), A = ReadUintFromArr(o, 12), s = ReadUintFromArr(o, 18), u = ReadUint16FromArr(o,
+    24), h = ReadUint16FromArr(o, 26), f = GetHash(r, ReadUint32FromArr(e || o, 28), a, i, l, A, s, u, h);
     return t && (o[17] === t && o[23] === t || (f.PowHash = [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
     255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255])), f;
 };
 
-function GetHash(r,o,a,e,t,n,i,A,l)
+function GetHash(r,o,a,e,t,n,i,l,A)
 {
-    DELTA_LONG_MINING < A && (A = 0), DELTA_LONG_MINING < l && (l = 0);
-    var s = GetHashFromNum2(a, o), u = GetHashFromArrNum2(r, e, t), h = GetHashFromNum3(a - A, e, n), f = GetHashFromNum3(a - l,
+    DELTA_LONG_MINING < l && (l = 0), DELTA_LONG_MINING < A && (A = 0);
+    var s = GetHashFromNum2(a, o), u = GetHashFromArrNum2(r, e, t), h = GetHashFromNum3(a - l, e, n), f = GetHashFromNum3(a - A,
     e, i), m = XORArr(s, h), H = XORArr(u, f), c = {Hash:H, Hash1:m, Hash2:H};
     return 0 < CompareArr(m, H) ? c.PowHash = m : c.PowHash = H, BLOCKNUM_HASH_NEW <= a && (c.Hash = BLOCKNUM_TICKET_ALGO <= a ? sha3arr2(m,
     H) : shaarr2(m, H)), c;
@@ -225,9 +225,9 @@ function GetBlockArrFromBuffer(r)
         {
             16 === n && (u.SumHash = ReadArrFromArr(r, 32), u.SumPow = ReadUintFromArr(r)), u.TreeHash = ReadArrFromArr(r, 32), u.AddrHash = ReadArrFromArr(r,
             32);
-            for(var i = [], A = n - 16, l = 0; l < 8; l++)
+            for(var i = [], l = n - 16, A = 0; A < 8; A++)
             {
-                var s = t[A + l];
+                var s = t[l + A];
                 i.push(s.Hash);
             }
             if(u.PrevHash = CalcHashFromArray(i, !0), u.SeqHash = GetSeqHash(u.BlockNum, u.PrevHash, u.TreeHash), ReadUint32FromArr(u.PrevHash,
@@ -256,10 +256,10 @@ function shaarrblock2(r,o,a)
 "object" == typeof global && (global.GetHashFromSeqAddr = GetHashFromSeqAddr, global.CalcHashBlockFromSeqAddr = CalcHashBlockFromSeqAddr,
 global.GetHashFromNum2 = GetHashFromNum2, global.GetHashFromNum3 = GetHashFromNum3, global.GetHashFromArrNum2 = GetHashFromArrNum2,
 global.XORArr = XORArr, global.GetHash = GetHash, (global.LOCAL_RUN || global.TEST_NETWORK) && (BLOCKNUM_HASH_NEW = 1e3, BLOCKNUM_TICKET_ALGO = BLOCKNUM_ALGO2 = 0,
-global.TEST_NETWORK && (global.BLOCKNUM_TICKET_ALGO = 1296300))), "object" == typeof global && (global.ReadUint32FromArr = ReadUint32FromArr,
+global.TEST_NETWORK && (global.BLOCKNUM_TICKET_ALGO = 1296300))), "object" == typeof global ? (global.ReadUint32FromArr = ReadUint32FromArr,
 global.ReadUintFromArr = ReadUintFromArr, global.ReadUint16FromArr = ReadUint16FromArr, global.WriteUintToArr = WriteUintToArr,
 global.WriteUint32ToArr = WriteUint32ToArr, global.WriteUint32ToArrOnPos = WriteUint32ToArrOnPos, global.WriteUint16ToArrOnPos = WriteUint16ToArrOnPos,
 global.WriteUintToArrOnPos = WriteUintToArrOnPos, global.WriteArrToArr = WriteArrToArr, global.WriteArrToArrOnPos = WriteArrToArrOnPos,
 global.WriteArrToArrHOnPos = WriteArrToArrHOnPos, global.ConvertBufferToStr = ConvertBufferToStr, global.CopyObjValue = CopyObjValue,
 global.CopyArr = CopyArr, global.ParseNum = ParseNum, global.CompareArr = CompareArr, global.shaarr2 = shaarr2, global.sha3arr2 = sha3arr2,
-global.arr2 = arr2, global.GetBlockArrFromBuffer = GetBlockArrFromBuffer, global.shaarrblock2 = shaarrblock2);
+global.arr2 = arr2, global.GetBlockArrFromBuffer = GetBlockArrFromBuffer, global.shaarrblock2 = shaarrblock2) : "object" == typeof window && (global = window);

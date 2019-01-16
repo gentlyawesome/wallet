@@ -647,6 +647,21 @@
             text-align: left;
             word-break: break-all;
         }
+        .dappname
+        {
+            width: 140px;
+            min-width: 140px;
+            align-content: left;
+            text-align: left;
+            word-break: break-all;
+        }
+        td.dappdesc
+        {
+            width: 180px;
+            min-width: 180px;
+            word-break: normal;
+        }
+
 
         #idCurrentBlockNum
         {
@@ -909,8 +924,8 @@
                 <table id="dapps_list" class="grid">
                     <tr>
                         <th id="(RetNumDapp(Item))" class="num">ID</th>
-                        <th id="(RetOpenDapps(Item,0,0))" class="accname">Name</th>
-                        <th id="Item.Description" class="code">Description</th>
+                        <th id="(RetOpenDapps(Item,0,0))" class="dappname">Name</th>
+                        <th id="Item.Description" class="code dappdesc">Description</th>
                         <th id="(RetCategory(Item))" class="">Category</th>
 
                         <th id="RetBaseAccount(Item)" class="num">Base Account</th>

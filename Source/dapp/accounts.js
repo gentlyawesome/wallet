@@ -258,7 +258,7 @@ class AccountApp extends require("./dapp")
         }
         catch(e)
         {
-            Result = e
+            Result = "" + e
         }
         if(Result !== true)
         {
@@ -910,7 +910,7 @@ class AccountApp extends require("./dapp")
             catch(e)
             {
                 F = undefined
-                ToLog(e)
+                ToLog("" + e)
             }
         }
         var WasError = 0;
@@ -944,7 +944,7 @@ class AccountApp extends require("./dapp")
                 catch(e)
                 {
                     if(!WasError)
-                        ToLog(e)
+                        ToLog("" + e)
                     WasError = 1
                 }
             }
