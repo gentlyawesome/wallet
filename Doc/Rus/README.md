@@ -1,5 +1,9 @@
 ﻿# TERA PLATFORM
 
+## ВЕБ-кошелек
+https://terafoundation.org/web-wallet.html
+
+
 ## Установка легкого кошелька на Windows:
 * https://github.com/terafoundation/wallet/raw/master/Bin/Light/tera_light_setup.exe
 * [Light client (zip)](https://github.com/terafoundation/wallet/raw/master/Bin/Light/Tera-light.zip)
