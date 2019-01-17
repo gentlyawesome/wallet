@@ -116,7 +116,7 @@ function LoadSignLib()
     window.SignLib || LoadLib("./JS/sign-lib-min.js");
 };
 window.TYPE_TRANSACTION_CREATE = 100, window.TR_TICKET_HASH_LENGTH = 10, window.DELTA_FOR_TIME_TX = 0, window.MIN_POWER_POW_TR = 0,
-window.MIN_POWER_POW_ACC_CREATE = 0, window.SetBlockChainConstant = function (r)
+window.MIN_POWER_POW_ACC_CREATE = 0, window.CONSENSUS_PERIOD_TIME = 1e3, window.FIRST_TIME_BLOCK = 15304464e5, window.SetBlockChainConstant = function (r)
 {
     var n = new Date - r.CurTime;
     r.DELTA_CURRENT_TIME || (r.DELTA_CURRENT_TIME = 0), window.DELTA_CURRENT_TIME2 = r.DELTA_CURRENT_TIME - n, window.MIN_POWER_POW_TR = r.MIN_POWER_POW_TR,

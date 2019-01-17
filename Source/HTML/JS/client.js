@@ -464,21 +464,21 @@ function SetGridData(e,t,r,n,a)
         if(o.MaxNum = m.Num, !(y = i[g]))
         {
             o.RowCount++, y = a ? o.insertRow(1) : o.insertRow( - 1), i[g] = y;
-            for(var f = 0; f < c; f++)
+            for(var p = 0; p < c; p++)
             {
-                if("" != (v = l[f]).innerText)
-                    v.F = CreateEval(v.id, "Item"), "(" === v.id.substr(0, 1) && (v.H = 1), (p = y.insertCell(f)).className = v.className;
+                if("" != (v = l[p]).innerText)
+                    v.F = CreateEval(v.id, "Item"), "(" === v.id.substr(0, 1) && (v.H = 1), (f = y.insertCell(p)).className = v.className;
             }
         }
         y.Work = glWorkNum, CUR_ROW = y;
-        for(f = 0; f < c; f++)
+        for(p = 0; p < c; p++)
         {
-            var p, v, S;
-            if(p = y.cells[f])
-                if((v = l[f]).H)
-                    (S = "" + v.F(m)).trim(), p.innerHTML !== S && (p.innerHTML = S);
+            var f, v, S;
+            if(f = y.cells[p])
+                if((v = l[p]).H)
+                    (S = "" + v.F(m)).trim(), f.innerHTML !== S && (f.innerHTML = S);
                 else
-                    (S = "" + v.F(m)).trim(), p.innerText !== S && (p.innerText = S);
+                    (S = "" + v.F(m)).trim(), f.innerText !== S && (f.innerText = S);
         }
         r && 0 === m.Currency && ADD(u, m.Value);
     }
@@ -856,7 +856,7 @@ function GetArrFromTR(e)
     for(var r = 0; r < e.To.length; r++)
     {
         var n = e.To[r];
-        3 <= e.Version && WriteTr(t, n.PubKey), WriteUint(t, n.ID), WriteUint(t, n.SumCOIN), WriteUint32(t, n.SumCENT), MapAccounts[n.ID] && (MapAccounts[n.ID].MustUpdate = MaxBlockNum + 10);
+        3 <= e.Version && WriteTr(t, n.PubKey), WriteUint(t, n.ID), WriteUint(t, n.SumCOIN), WriteUint32(t, n.SumCENT), MapAccounts && MapAccounts[n.ID] && (MapAccounts[n.ID].MustUpdate = MaxBlockNum + 10);
     }
     return WriteStr(t, e.Description), WriteUint(t, e.OperationID), 3 <= e.Version && (e.Body ? WriteTr(t, e.Body) : (WriteByte(t,
     0), WriteByte(t, 0))), t;
@@ -896,10 +896,9 @@ function GetSignTransaction(a,o)
         });
 };
 
-function GetSignFromArr(e)
+function GetSignFromArr(e,t)
 {
-    var t = localStorage.idPrivKey;
-    if(!IsHexStr(t) || 64 !== t.length)
+    if(t || (t = localStorage.idPrivKey), !IsHexStr(t) || 64 !== t.length)
         return "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
     var r = GetArrFromHex(t), n = shaarr(e);
     return GetHexFromArr(SignLib.sign(Buffer.from(n), Buffer.from(r), null, null).signature);

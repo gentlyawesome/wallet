@@ -190,6 +190,7 @@ sudo pm2 start run-test.js
 * Twitter: https://twitter.com/terafoundation
 * Telegram: https://web.telegram.org/#/im?p=@terafoundation
 * Discord: https://discord.gg/CvwrbeG
+* [Tera White Paper](https://docs.google.com/document/d/1X6COYc7Da_oUtyfuxawolLAEL8qeyW0vPk2uUk0IDEw/edit?usp=sharing)
 * [DEX-guide](https://docs.google.com/document/d/1qvVRfLq3qcYYF6dcsAAAqoGyBFF4njXUYZXZfTPWd2w/edit?usp=sharing)
 * [BTC for DEX](https://docs.google.com/document/d/19vRY6tkbTP8tubZxM01llwnMyz4P6IzY0zvnargrU6k/edit?usp=sharing)
 * [Эта же страница на русском](https://github.com/terafoundation/wallet/tree/master/Doc/Rus)

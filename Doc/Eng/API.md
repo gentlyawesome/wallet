@@ -102,6 +102,7 @@ Example:
     <script type="text/javascript" src="./JS/sign-lib-min.js"></script>
 
     <script>
+        var PrivKey="1E8E49FF0D3F04FD5E983C8A1BAF9A23A23FA26C099430C9C37BCEBC83286CC9";
         function GetHex()
         {
             var TR=
@@ -131,7 +132,7 @@ Example:
 
 
             var Body=GetArrFromTR(TR);
-            var Sign=GetSignFromArr(Body,"1E8E49FF0D3F04FD5E983C8A1BAF9A23A23FA26C099430C9C37BCEBC83286CC9");
+            var Sign=GetSignFromArr(Body,PrivKey);
             var Arr=GetArrFromHex(Sign);
             WriteArr(Body,Arr,64);
             Body.length+=12;
