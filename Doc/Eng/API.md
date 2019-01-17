@@ -86,7 +86,7 @@ Note: The transaction in hex format can be obtained if you use a functions from 
 * The library is located at: https://github.com/terafoundation/wallet/raw/master/Bin/Light/Tera-light.zip
 
 Example:
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
