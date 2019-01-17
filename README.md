@@ -198,11 +198,11 @@ sudo pm2 start run-test.js
 * [Tera White Paper](https://docs.google.com/document/d/1X6COYc7Da_oUtyfuxawolLAEL8qeyW0vPk2uUk0IDEw/edit?usp=sharing)
 * [DEX-guide](https://docs.google.com/document/d/1qvVRfLq3qcYYF6dcsAAAqoGyBFF4njXUYZXZfTPWd2w/edit?usp=sharing)
 * [BTC for DEX](https://docs.google.com/document/d/19vRY6tkbTP8tubZxM01llwnMyz4P6IzY0zvnargrU6k/edit?usp=sharing)
-* [Эта же страница на русском](https://github.com/terafoundation/wallet/tree/master/Doc/Rus)
 * [Torrent of blockchain - DATA/DB folder](https://github.com/terafoundation/wallet/raw/master/Torrent/Tera-folder-DB.torrent)
 * [API](https://github.com/terafoundation/wallet/blob/master/Doc/Eng/API.md)
 * [Wallet handbook - PDF (old)](https://drive.google.com/file/d/1ej-8jkjKd3p78vdGXWkzzVJq5PTgyxEw/view?usp=sharing)
 * ~~[Mining guide (chinese PDF)](https://github.com/terafoundation/wallet/raw/master/Doc/Chinese/Mining.pdf)~~
 
 
+[Эта же страница на русском](https://github.com/terafoundation/wallet/tree/master/Doc/Rus)
 
