@@ -70,6 +70,8 @@ Result:
 ```
 {"result":1,"arr":[{"Currency":0,"PubKey":{"type":"Buffer","data":[2,122,224,220,233,45,139,225,248,147,82,91,34,102,149,221,240,254,106,215,86,52,154,118,119,127,245,31,59,89,6,125,112]},"Name":"Founder account","Value":{"SumCOIN":40000005,"SumCENT":0,"OperationID":7,"Smart":0,"Data":{"type":"Buffer","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}},"BlockNumCreate":0,"Adviser":0,"Reserve":{"type":"Buffer","data":[0,0,0,0,0,0,0,0,0]},"Num":8,"WN":""}]}
 ```
+Note: public key in hex format can be taken from the wallet on EXPLORER -> Accounts (PubKey column)
+
 
 #### Sending a transaction
 http://194.1.237.94:80/SendTransactionHex?Hex=6F030000000000002D00000000000100000000008400000000000100000000000000000004007465737425000000000000007AA29739FD458DF8AB1139881DAA4584CCDA3D4995B6849FB1F55F3B2EA40704116647823E97A60C70213EFA8D83CBFBEE6D753FCA6771B4792985B57186F3BCFBCEC0000000930600000000
@@ -77,5 +79,77 @@ http://194.1.237.94:80/SendTransactionHex?Hex=6F030000000000002D0000000000010000
 Result:
 ```
 {"result":1,"text":"OK"}
+```
+
+
+Note: The transaction in hex format can be obtained if you use a functions from the js-library
+* The library is located at: https://github.com/terafoundation/wallet/raw/master/Bin/Light/Tera-light.zip
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test-API</title>
+
+
+    <script type="text/javascript" src="./JS/client.js"></script>
+    <script type="text/javascript" src="./JS/sha3.js"></script>
+    <script type="text/javascript" src="./JS/crypto-client.js"></script>
+    <script type="text/javascript" src="./JS/terahashlib.js"></script>
+    <script type="text/javascript" src="./JS/wallet-lib.js"></script>
+    <script type="text/javascript" src="./JS/sign-lib-min.js"></script>
+
+    <script>
+        function GetHex()
+        {
+            var TR=
+                {
+                    "Type": 111,
+                    "Version": 3,
+                    "Reserve": 0,
+                    "FromID": 188386,
+                    "OperationID": 8,
+                    "To": [
+                        {
+                            "PubKey": "",
+                            "ID": 188391,
+                            "SumCOIN": 1,
+                            "SumCENT": 0
+                        }
+                    ],
+                    "Description": "=123=",
+                    "Body": "",
+                    "Sign": ""
+                }
+
+            //you must get data from node:
+            window.DELTA_CURRENT_TIME2=0;//???
+            window.MIN_POWER_POW_TR=10;
+            window.MIN_POWER_POW_ACC_CREATE=16+3;
+
+
+            var Body=GetArrFromTR(TR);
+            var Sign=GetSignFromArr(Body,"1E8E49FF0D3F04FD5E983C8A1BAF9A23A23FA26C099430C9C37BCEBC83286CC9");
+            var Arr=GetArrFromHex(Sign);
+            WriteArr(Body,Arr,64);
+            Body.length+=12;
+            CreateHashBodyPOWInnerMinPower(Body);
+            var StrHex=GetHexFromArr(Body);
+
+            $("idOut").value=StrHex;
+            console.log(StrHex);
+        }
+
+    </script>
+</head>
+<body>
+
+<button onclick="GetHex()">GetHex</button><BR>
+<textarea id="idOut" rows="20" cols="98"></textarea>
+</body>
+</html>
+
 ```
 
