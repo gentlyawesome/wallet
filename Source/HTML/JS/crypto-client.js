@@ -37,15 +37,15 @@ function GetPowValue(r)
 
 function CreateNoncePOWExtern(r,n,e,t)
 {
-    for(var o = [], a = 0; a < r.length; a++)
-        o[a] = r[a];
+    for(var o = [], _ = 0; _ < r.length; _++)
+        o[_] = r[_];
     t || (t = 0);
-    for(var _ = 0, E = MAX_SUPER_VALUE_POW, i = t; i <= t + e; i++)
+    for(var E = 0, T = MAX_SUPER_VALUE_POW, a = t; a <= t + e; a++)
     {
-        var T = GetPowValue(GetHashWithValues(o, i, n, !0));
-        T < E && (_ = i, E = T);
+        var i = GetPowValue(GetHashWithValues(o, a, n, !0));
+        i < T && (E = a, T = i);
     }
-    return _;
+    return E;
 };
 
 function CreateHashBody(r,n,e)
@@ -54,15 +54,15 @@ function CreateHashBody(r,n,e)
     r[t + 0] = 255 & n, r[t + 1] = n >>> 8 & 255, r[t + 2] = n >>> 16 & 255, r[t + 3] = n >>> 24 & 255, r[t + 4] = 0, r[t + 5] = 0,
     r[(t = r.length - 6) + 0] = 255 & e, r[t + 1] = e >>> 8 & 255, r[t + 2] = e >>> 16 & 255, r[t + 3] = e >>> 24 & 255, r[t + 4] = 0,
     r[t + 5] = 0;
-    for(var o = sha3(r), a = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    _ = 0; _ < TR_TICKET_HASH_LENGTH; _++)
-        a[_] = o[_];
-    return WriteUintToArrOnPos(a, n, TR_TICKET_HASH_LENGTH), sha3(a);
+    for(var o = sha3(r), _ = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    E = 0; E < TR_TICKET_HASH_LENGTH; E++)
+        _[E] = o[E];
+    return WriteUintToArrOnPos(_, n, TR_TICKET_HASH_LENGTH), sha3(_);
 };
 
 function GetBlockNumTr(r)
 {
-    var n = 1 + GetCurrentBlockNumByTime();
+    var n = window.DELTA_FOR_TIME_TX + GetCurrentBlockNumByTime();
     if(r[0] === TYPE_TRANSACTION_CREATE)
     {
         var e = 10 * Math.floor(n / 10);
@@ -73,7 +73,7 @@ function GetBlockNumTr(r)
 
 function CreateHashBodyPOWInnerMinPower(r,n)
 {
-    var e = GetBlockNumTr(r);
+    var e = window.DELTA_FOR_TIME_TX + GetBlockNumTr(r);
     void 0 === n && (n = MIN_POWER_POW_TR + Math.log2(r.length / 128));
     for(var t = 0; ; )
     {
@@ -87,8 +87,8 @@ function CalcHashFromArray(r,n)
 {
     void 0 === n && r.sort(CompareArr);
     for(var e = [], t = 0; t < r.length; t++)
-        for(var o = r[t], a = 0; a < o.length; a++)
-            e.push(o[a]);
+        for(var o = r[t], _ = 0; _ < o.length; _++)
+            e.push(o[_]);
     return 0 === e.length ? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : 32 === e.length ? e : shaarr(e);
 };
 
@@ -115,8 +115,8 @@ function LoadSignLib()
 {
     window.SignLib || LoadLib("./JS/sign-lib-min.js");
 };
-window.TYPE_TRANSACTION_CREATE = 100, window.TR_TICKET_HASH_LENGTH = 10, window.MIN_POWER_POW_TR = 0, window.MIN_POWER_POW_ACC_CREATE = 0,
-window.SetBlockChainConstant = function (r)
+window.TYPE_TRANSACTION_CREATE = 100, window.TR_TICKET_HASH_LENGTH = 10, window.DELTA_FOR_TIME_TX = 0, window.MIN_POWER_POW_TR = 0,
+window.MIN_POWER_POW_ACC_CREATE = 0, window.SetBlockChainConstant = function (r)
 {
     var n = new Date - r.CurTime;
     r.DELTA_CURRENT_TIME || (r.DELTA_CURRENT_TIME = 0), window.DELTA_CURRENT_TIME2 = r.DELTA_CURRENT_TIME - n, window.MIN_POWER_POW_TR = r.MIN_POWER_POW_TR,

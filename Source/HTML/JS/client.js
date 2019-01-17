@@ -776,7 +776,9 @@ function SendTransaction(o,i,u,l)
                 if(window.SetStatus && SetStatus("Send '" + t.substr(0, 16) + "' result:" + e.text), "Not add" === e.text)
                     r(1, n + 1);
                 else
-                    if("Bad time" === e.text);
+                    if("Bad time" === e.text)
+                        window.DELTA_FOR_TIME_TX < 6 && (window.DELTA_FOR_TIME_TX++, console.log("New set Delta time: " + window.DELTA_FOR_TIME_TX),
+                        r(1, 0));
                     else
                     {
                         var t = GetHexFromArr(sha3(o));
