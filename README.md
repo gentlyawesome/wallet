@@ -1,7 +1,9 @@
 ﻿# TERA PLATFORM
 
-## Decentralized light-wallet (web-version)
+## Light-wallet (web-version)
 https://terafoundation.org/web-wallet.html
+* Note: the light wallet has a decentralized core - i.e. it works with all available nodes in the network
+
 
 ## Installing decentralized light wallet from setup on Windows:
 * https://github.com/terafoundation/wallet/raw/master/Bin/Light/tera_light_setup.exe

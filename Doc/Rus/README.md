@@ -1,10 +1,10 @@
 ﻿# TERA PLATFORM
 
-## Децентрализованный легкий кошелек (веб-версия):
+## Легкий кошелек (веб-версия):
 https://terafoundation.org/web-wallet.html
+* Примечание: легкий кошелек имеет децентрализованное ядро - т.е. работает со всеми доступными нодами в сети
 
-
-## Установка децентрализованного легкого кошелька на Windows:
+## Установка легкого кошелька на Windows:
 * https://github.com/terafoundation/wallet/raw/master/Bin/Light/tera_light_setup.exe
 * [Light client (zip)](https://github.com/terafoundation/wallet/raw/master/Bin/Light/Tera-light.zip)
 
