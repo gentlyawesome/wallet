@@ -206,6 +206,6 @@ sudo pm2 start run-test.js
 * [Mining guide (chinese PDF)](https://github.com/terafoundation/wallet/raw/master/Doc/Chinese/Mining.pdf)
 * [Tera White Paper (chinese PDF)](https://github.com/terafoundation/wallet/raw/master/Doc/Chinese/WP_chinese.pdf)
 
-
-[Эта же страница на русском](https://github.com/terafoundation/wallet/tree/master/Doc/Rus)
+## RUS
+* [Эта же страница на русском](https://github.com/terafoundation/wallet/tree/master/Doc/Rus)
 
