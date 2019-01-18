@@ -207,5 +207,5 @@ sudo pm2 start run-test.js
 * [Tera White Paper (chinese PDF)](https://github.com/terafoundation/wallet/raw/master/Doc/Chinese/WP_chinese.pdf)
 
 ## RUS
-* [Эта же страница на русском](https://github.com/terafoundation/wallet/tree/master/Doc/Rus)
+ [Эта же страница на русском](https://github.com/terafoundation/wallet/tree/master/Doc/Rus)
 
