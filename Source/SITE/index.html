@@ -22,15 +22,35 @@
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="CSS/style.min.css" />
 
-    <!--<style>-->
-        <!--.my-qq-->
-        <!--{-->
-            <!--background-image2: url('qq.png');-->
-            <!--background-repeat: no-repeat;-->
-            <!--background-size:32px;-->
-        <!--}-->
-    <!--</style>-->
+    <style>
+        @media all
+        {
+            .nav .open>a, .nav .open>a:focus, .nav .open>a:hover
+            {
+                background-color: rgba(250, 250, 250, .1);
+                border-color: #337ab7;
+            }
 
+            /*.dropdown2 li*/
+            /*{*/
+                /*background-color: rgba(250, 250, 250, .01);*/
+                /*opacity: 1;*/
+            /*}*/
+            /*.dropdown2 li a*/
+            /*{*/
+                /*background-color: rgba(250, 250, 250, .01);*/
+                /*opacity: 1;*/
+            /*}*/
+
+
+
+            #nav.nav-transparent:not(.fixed-nav) .main-nav>li>a
+            {
+                color:white;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
@@ -41,6 +61,7 @@
 			<div class="overlay"></div>
 		</div>
 		<!-- /Background Image -->
+
 
 		<!-- Nav -->
 		<nav id="nav" class="navbar nav-transparent">
@@ -65,16 +86,35 @@
 
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right white_menu">
-					<li><a style="color: white" href="#technology">TECHNOLOGY</a></li>
-					<li><a style="color: white" href="http://teraminer.org/" target="_blank">START MINING</a></li>
-					<li><a style="color: white" href="/explorer.html">EXPLORER</a></li>
-					<li><a style="color: white" href="/web-wallet.html">WALLET</a></li>
-					<li><a style="color: white" href="/map.html">NETWORK MAP</a></li>
+					<li><a href="#technology">TECHNOLOGY</a></li>
+					<li><a href="http://teraminer.org/" target="_blank">START MINING</a></li>
+					<li><a href="/explorer.html">EXPLORER</a></li>
+					<li><a href="/web-wallet.html">WALLET</a></li>
+					<li><a href="/map.html">NETWORK MAP</a></li>
+
+                    <!-- Выпадающий список -->
+                    <li class="dropdown2">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">WHITE PAPER<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://docs.google.com/document/d/1EaqFg1ncIxsrNE2M9xJOSzQu8z3ANwMuNyTX0z_A1ow/edit?usp=sharing/" target="_blank">ENG</a></li>
+                            <li><a href="https://github.com/terafoundation/wallet/blob/master/Doc/Chinese/WP_chinese.pdf/" target="_blank">CHINESE</a></li>
+                            <li><a href="https://docs.google.com/document/d/1B6_qlAp2xs4aHkqOwyvRMCDJTjgeNiOJiGpIeT0VAzY/edit?usp=sharing/" target="_blank">RUS</a></li>
+                            <!--<li role="separator" class="divider"></li>-->
+                        </ul>
+                    </li>
+
+
 				</ul>
 				<!-- /Main navigation -->
 
 			</div>
 		</nav>
+
+
+
+
+
+
 		<!-- /Nav -->
 
 		<!-- Social Header -->
@@ -93,7 +133,7 @@
                             <li><a href="https://discord.gg/CvwrbeG" target="_blank"><i class="fab fa-discord"></i></a></li>
                             <li><a href="https://github.com/terafoundation/wallet" target="_blank"><i class="fab fa-github"></i></a></li>
                             <li><a href="https://web.telegram.org/#/im?p=@terafoundation" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
-                            <li><a href="https://jq.qq.com/?_wv=1027&k=58VsQxc" target="_blank"><i class="fab my-qq">QQ</i></a></li>
+                            <li><a href="https://jq.qq.com/?_wv=1027&k=58VsQxc" target="_blank"><i class="fab fa-qq"></i></a></li>
                         </ul>
                         <!-- /Social follow -->
     
@@ -216,17 +256,17 @@
                                 <th>Max Supply</th>
                                 <th>Issue Date</th>
                                 <th>Consensus Protocol</th>
-                                <th>Type</th>
-                                <th>Cryptographic Algorithm</th>
+                                <th>Cryptography</th>
+                                <th>Smart contract language</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td data-title="Max Supply">1,000,000,000</td>
-                                <td data-title="Issue Date">07/01/2018</td>
-                                <td data-title="Consensus Protocol">POW</td>
-                                <td data-title="Type">COIN</td>
-                                <td data-title="Consensus Protocol">TERAhash</td>
+                                <td>1,000,000,000</td>
+                                <td>07/01/2018</td>
+                                <td>POW</td>
+                                <td>sha3, secp256k1</td>
+                                <td>Javascript</td>
                             </tr>
                         </tbody>
                     </table>
@@ -242,16 +282,16 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td data-title="Block Size">120 KB</td>
-                                <td data-title="Pre-mine">5%</td>
-                                <td data-title="Source Code">
+                                <td>120 KB</td>
+                                <td>5%</td>
+                                <td>
                                     <a href="https://github.com/terafoundation/wallet" target="_blank">https://github.com/terafoundation/wallet
                                     </a>
                                 </td>
-                                <td data-title="Explorer">
+                                <td>
                                     <a href="https://terafoundation.org/explorer.html" target="_blank">https://terafoundation.org/explorer.html</a>
                                 </td>
-                                <td data-title="Platform">NodeJS</td>
+                                <td>NodeJS</td>
                             </tr>
                         </tbody>
                     </table>
@@ -419,7 +459,7 @@
                         <li><a href="https://discord.gg/CvwrbeG" target="_blank"><i class="fab fa-discord"></i></a></li>
                         <li><a href="https://github.com/terafoundation/wallet" target="_blank"><i class="fab fa-github"></i></a></li>
                         <li><a href="https://web.telegram.org/#/im?p=@terafoundation" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
-                        <li><a href="https://jq.qq.com/?_wv=1027&k=58VsQxc" target="_blank"><i class="fab my-qq"></i>QQ</a></li>
+                        <li><a href="https://jq.qq.com/?_wv=1027&k=58VsQxc" target="_blank"><i class="fab fa-qq"></i></a></li>
                     </ul>
 					<!-- /footer follow -->
 
@@ -440,20 +480,21 @@
 	<!-- /Back to top -->
 
 	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>
-	</div>
+	<!--<div id="preloader">-->
+		<!--<div class="preloader">-->
+			<!--<span></span>-->
+			<!--<span></span>-->
+			<!--<span></span>-->
+			<!--<span></span>-->
+		<!--</div>-->
+	<!--</div>-->
 	<!-- /Preloader -->
 
 	<!-- jQuery Plugins -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/main.min.js"></script>
+
 
 </body>
 
