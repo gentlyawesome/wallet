@@ -1,6 +1,6 @@
 ﻿## API
 
-This API is available if the node is running public http-access. Set the constant HTTP_PUBLIC_PORT (for the period of the test run - November 2018 this constant is the name HTTP_HOSTING_PORT)
+This API is available if the node is running public http-access. Set the constant HTTP_HOSTING_PORT.
 
 #### Getting the current status of the blockchain
 http://194.1.237.94:80/GetCurrentInfo?Diagram=0
