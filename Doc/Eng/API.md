@@ -8,7 +8,7 @@ http://194.1.237.94:80/GetCurrentInfo?Diagram=0
 Result:
 * MaxNumBlockDB - the maximum block number stored in the database (the current height of the blockchain)
 * CurBlockNum - new block to create
-* MaxAccID - the current maximum account number
+* MaxAccID - current maximum account number
 * MaxDappsID  - current maximum Dapp number
 * VersionNum - version of the program on which the node works
 
