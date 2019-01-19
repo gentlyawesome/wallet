@@ -9,7 +9,7 @@
  * Telegram: https://web.telegram.org/#/im?p=@terafoundation
 */
 
-global.UPDATE_CODE_VERSION_NUM = 869;
+global.UPDATE_CODE_VERSION_NUM = 870;
 global.MIN_CODE_VERSION_NUM = 863;
 global.MINING_VERSION_NUM = 2;
 global.InitParamsArg = InitParamsArg;
@@ -25,7 +25,7 @@ global.USE_CHECK_SENDING = 1;
 global.USE_LEVEL_WAY = 0;
 global.TR_TICKET_HASH_LENGTH = 10;
 global.BLOCKNUM_TICKET_ALGO = 16070000;
-global.WATCHDOG_BADACCOUNT = 0;
+global.WATCHDOG_BADACCOUNT = 1;
 global.WATCHDOG_DEV = 0;
 global.DEBUG_WALLET = 0;
 global.CHECK_GLOBAL_TIME = 1;
