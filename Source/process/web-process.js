@@ -266,6 +266,7 @@ WalletFileMap["highlight.js"] = 1;
 WalletFileMap["highlight-js.js"] = 1;
 WalletFileMap["highlight-html.js"] = 1;
 WalletFileMap["codes.css"] = 1;
+WalletFileMap["sign-lib-min.js"] = 1;
 WalletFileMap["buttons.css"] = 1;
 WalletFileMap["style.css"] = 1;
 WalletFileMap["wallet.css"] = 1;

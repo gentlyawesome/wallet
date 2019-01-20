@@ -9,7 +9,7 @@
  * Telegram: https://web.telegram.org/#/im?p=@terafoundation
 */
 
-global.UPDATE_CODE_VERSION_NUM = 870;
+global.UPDATE_CODE_VERSION_NUM = 871;
 global.MIN_CODE_VERSION_NUM = 863;
 global.MINING_VERSION_NUM = 2;
 global.InitParamsArg = InitParamsArg;
@@ -75,7 +75,7 @@ global.MAX_CONNECT_CHILD = 7;
 global.MAX_NODES_RETURN = 100;
 global.MAX_WAIT_PERIOD_FOR_STATUS = 10 * 1000;
 global.MAX_GRAY_CONNECTIONS_TO_SERVER = 10;
-global.MAX_PACKET_LENGTH = 400 * 1024;
+global.MAX_PACKET_LENGTH = 450 * 1024;
 global.COUNT_BLOCKS_FOR_LOAD = 600;
 global.TR_LEN = 100;
 global.BLOCK_PROCESSING_LENGTH = 8;
@@ -85,7 +85,7 @@ global.MAX_BLOCK_SIZE = 130 * 1024;
 global.MAX_TRANSACTION_SIZE = 65535;
 global.MIN_TRANSACTION_SIZE = 32;
 global.MAX_TRANSACTION_COUNT = 2000;
-global.MAX_TRANSACTION_LIMIT = 110;
+global.MAX_TRANSACTION_LIMIT = 15;
 global.MIN_POWER_POW_TR = 10;
 if(global.MIN_POWER_POW_BL === undefined)
     global.MIN_POWER_POW_BL = 5;

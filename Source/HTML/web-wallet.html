@@ -57,8 +57,13 @@
             {
                 SetDiagramMouseX(event);
             }
-
+            if(window.location.hash)
+            {
+                var name=window.location.hash.substr(1);
+                SelectTab(name);
+            }
         }
+
         function OnFindServer()
         {
             if(!MainServer)
@@ -107,6 +112,7 @@
             SetVisibleTab();
             SaveValues();
             OnSelectTab(name);
+            window.location.hash="#"+name;
         }
         function OnSelectTab(name)
         {

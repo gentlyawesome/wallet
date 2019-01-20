@@ -30,7 +30,7 @@ setInterval(PrepareStatEverySecond, 1000);
 process.send({cmd:"online", message:"OK"});
 global.ToLogClient = function (Str,StrKey,bFinal)
 {
-    process.send({cmd:"ToLogClient", Str:Str, StrKey:StrKey, bFinal:bFinal});
+    process.send({cmd:"ToLogClient", Str:"" + Str, StrKey:StrKey, bFinal:bFinal});
 };
 process.on('message', function (msg)
 {

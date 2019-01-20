@@ -197,6 +197,11 @@
                     CheckInstall();
                     break;
                 }
+                case "SetLocationHash":
+                {
+                    window.location.hash="#"+Data.Message;
+                    break;
+                }
 
 
             }
@@ -301,6 +306,7 @@
                     <script type="text/javascript" src="./JS/coinlib.js"><\/script>\
                     <script type="text/javascript" src="./JS/client.js"><\/script>\
                     <script type="text/javascript" src="./JS/dapp-inner.js"><\/script>\
+                    <script type="text/javascript" src="./JS/terahashlib.js"><\/script>\
                     '+SriptLW+SetData.Body;
 
             iframe.srcdoc=SetData.Body;
@@ -415,6 +421,8 @@
     //   glDebugPath="./dapp-smart/BTC-coin.html";
     //  glDebugPath="./dapp-smart/freeze.html";
     //  glDebugPath="./dapp-smart/promise.html";
+
+    //glDebugPath="./dapp-smart/OnlineStore.html";
     //{"HTMLBlock":17035437,"HTMLTr":0}
 </script>
 
