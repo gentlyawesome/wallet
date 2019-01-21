@@ -800,8 +800,8 @@ function SendCallMethod(e,t,r,n,a)
     {
         var t;
         e && 1 === e.result && e.Item ? e.Item.Num == n ? e.Item.Value.Smart === a ? (MapSendID[n] ? (t = MapSendID[n].OperationID,
-        8e3 < new Date - MapSendID[n].Date && (t += 20, MapSendID[n].OperationID = t)) : (t = e.Item.Value.OperationID + 10, MapSendID[n] = {OperationID:t}),
-        MapSendID[n].OperationID++, MapSendID[n].Date = Date.now(), WriteUint(i, t), i.length += 10, SendTrArrayWithSign(i, n, o)) : SetStatus("Error - The account:" + n + " does not belong to a smart contract:" + a + " (have: " + e.Item.Value.Smart + ")") : SetStatus("Error read from account number: " + n + " read data=" + e.Item.Num) : SetStatus("Error account number: " + n);
+        8e3 < new Date - MapSendID[n].Date && (t += 20)) : (t = e.Item.Value.OperationID + 10, MapSendID[n] = {}), t++, t++, MapSendID[n].OperationID = t,
+        MapSendID[n].Date = Date.now(), WriteUint(i, t), i.length += 10, SendTrArrayWithSign(i, n, o)) : SetStatus("Error - The account:" + n + " does not belong to a smart contract:" + a + " (have: " + e.Item.Value.Smart + ")") : SetStatus("Error read from account number: " + n + " read data=" + e.Item.Num) : SetStatus("Error account number: " + n);
     }) : (WriteUint(i, 0), i.length += 10, i.length += 64, i.length += 12, SendTransaction(i, o));
 };
 
