@@ -245,13 +245,14 @@ function SaveToStorageByArr(t)
     }
 };
 
-function LoadFromStorageByArr(n,o)
+function LoadFromStorageByArr(n,o,r)
 {
     GetStorage("VerSave", function (t,e)
     {
         if("1" === e)
             for(var a = 0; a < n.length; a++)
                 a === n.length - 1 ? LoadFromStorageById(n[a], o) : LoadFromStorageById(n[a]);
+        r && o && o(0);
     });
 };
 
@@ -263,12 +264,13 @@ function LoadFromStorageById(n,o)
         "checkbox" === a.type ? a.checked = parseInt(e) : a.value = e, o && o(t, e);
     });
 };
+var SendCountDappParams = 0;
 
 function GetDappParams(t,e,n)
 {
-    SendCount++, DappBlockFile(t, e, function (t,e)
+    SendCountDappParams++, DappBlockFile(t, e, function (t,e)
     {
-        if(SendCount--, !t && 135 === e.Type)
+        if(SendCountDappParams--, !t && 135 === e.Type)
         {
             try
             {

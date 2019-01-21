@@ -301,7 +301,8 @@ module.exports = class CBlock extends require("./db/block-db")
                 {
                     if(chain.BlockNum < this.CurrentBlockNum - COUNT_HISTORY_BLOCKS_FOR_LOAD)
                     {
-                        ToLog("Very long length of blocks to load history, stop chain with id=" + chain.id + "  (" + chain.BlockNum + "-" + chain.BlockNumMax + ")")
+                        if(global.WATCHDOG_DEV)
+                            ToLog("Very long length of blocks to load history, stop chain with id=" + chain.id + "  (" + chain.BlockNum + "-" + chain.BlockNumMax + ")")
                         chain.StopSend = true
                         chain.AddInfo("Stop load #1")
                         this.FREE_ALL_MEM_CHAINS()
@@ -310,7 +311,8 @@ module.exports = class CBlock extends require("./db/block-db")
                     else
                         if(chain.BlockNumMax < min_num)
                         {
-                            ToLog("Timeout - stop load chain with id=" + chain.id + "  (" + chain.BlockNum + "-" + chain.BlockNumMax + ")")
+                            if(global.WATCHDOG_DEV)
+                                ToLog("Timeout - stop load chain with id=" + chain.id + "  (" + chain.BlockNum + "-" + chain.BlockNumMax + ")")
                             chain.StopSend = true
                             chain.AddInfo("Stop load #2")
                             this.ClearChains(chain, 0)
@@ -324,7 +326,8 @@ module.exports = class CBlock extends require("./db/block-db")
                 var WasBlock = Map[StrKey];
                 if(WasBlock && WasBlock.chain !== chain && CompareArr(WasBlock.Hash, chain.Hash) === 0 && !WasBlock.chain.Deleted)
                 {
-                    ToLog("Was hash in chain " + WasBlock.chain.id + " - stop load chain with id=" + chain.id + "  (" + chain.BlockNum + ")")
+                    if(global.WATCHDOG_DEV)
+                        ToLog("Was hash in chain " + WasBlock.chain.id + " - stop load chain with id=" + chain.id + "  (" + chain.BlockNum + ")")
                     chain.Comment2 = "was hash"
                     chain.StopSend = true
                 }
@@ -342,7 +345,8 @@ module.exports = class CBlock extends require("./db/block-db")
         this.LastLoadedBlockNum = 0
         if(this.LoadedChainList.length > COUNT_HISTORY_BLOCKS_FOR_LOAD)
         {
-            ToLog("LoadedChainList>COUNT_HISTORY_BLOCKS_FOR_LOAD -> FREE_ALL_MEM_CHAINS")
+            if(global.WATCHDOG_DEV)
+                ToLog("LoadedChainList>COUNT_HISTORY_BLOCKS_FOR_LOAD -> FREE_ALL_MEM_CHAINS")
             this.FREE_ALL_MEM_CHAINS()
         }
     }
