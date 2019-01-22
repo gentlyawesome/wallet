@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Block</title>
+    <link rel="shortcut icon" href="/HTML/PIC/viewer.png" type="image/png">
+
+    <link rel="stylesheet" type="text/css" href="../HTML/CSS/buttons.css">
+    <link rel="stylesheet" type="text/css" href="../HTML/CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="../HTML/CSS/wallet.css">
+
+    <script>
+        window.RUN_CLIENT=1;
+        window.RUN_SERVER=0;
+        if(typeof global === 'object')
+        {
+            global.RUN_CLIENT=1;
+            global.RUN_SERVER=0;
+        }
+    </script>
+    <script type="text/javascript" src="/HTML/JS/coinlib.js"></script>
+    <script type="text/javascript" src="../HTML/JS/client.js"></script>
+
+
+
+    <script>
+        var CountViewRows=10;
+        var DefTr={NumName:"idViewTrNum", TabName:"grid_transaction_all",APIName:"GetTransactionAll",Param3:undefined};
+
+        window.onload=function()
+        {
+            document.body.className="univers "+localStorage["idSelStyle"];
+            var i=document.URL.indexOf("#");
+            if(i>0)
+            {
+                var BlockNum=ParseNum(document.URL.substr(i+1));
+                ViewBlock(BlockNum);
+            }
+
+            window.onkeydown = function (e)
+            {
+                if(e.keyCode===27)
+                {
+                    window.close();
+                }
+            };
+        }
+        function ViewBlock(BlockNum)
+        {
+            if(BlockNum)
+                document.getElementById("idViewBlockNum").value=BlockNum;
+            else
+                BlockNum=ParseNum(document.getElementById("idViewBlockNum").value);
+
+            document.title="Block: "+BlockNum;
+            DefTr.Param3=BlockNum;
+            ViewCurrent(DefTr);
+        }
+
+
+        function SaveValues()
+        {
+        }
+
+    </script>
+</head>
+<body>
+
+<DIV align='center'>
+
+<DIV id="idTransactionBlock" style="display: block">
+    <BR>
+    <DIV class="header_tr" >Transactions on block: <INPUT type="number" id="idViewBlockNum" style="text-align: center" value="0" min=0 max=1000000000 onchange="ViewBlock()"> </DIV>
+    <BR>
+    <!--<INPUT type="button" onclick="ViewPrev(DefBlock)" class="btdoit bt" value="<< Prev">-->
+    <!--<INPUT type="number" id="idViewBlockNum" style="text-align: center" value="0" min=0 max=1000000000 onchange="ViewCurrent(DefBlock)">-->
+    <!--<INPUT type="button" onclick="ViewNext(DefBlock,MaxBlockNum-8)" class="btdoit bt" value="Next >>">-->
+
+
+    <INPUT type="button" onclick="ViewPrev(DefTr)" class="btdoit bt" value="<< Prev">
+    <INPUT type="number" id="idViewTrNum" style="text-align: center" value="0" min=0 max=1000000000 onchange="ViewCurrent(DefTr)">
+    <INPUT type="button" onclick="ViewNext(DefTr,5000)" class="btdoit bt" value="Next >>">
+
+    <table id="grid_transaction_all" class="grid">
+        <tr>
+            <th id="Item.Num" class="num">TrNum</th>
+            <th id="Item.Type" class="num">Type</th>
+            <th id="GetHexFromArr(Item.Body)" class="code">Body</th>
+            <th id="(escapeHtml(Item.Script))" class="code2">JSON</th>
+            <th id="GetHexFromArr(Item.HASH)" class="code">HASH</th>
+            <th id="Item.Length" class="num">Bytes</th>
+            <th id="Item.power" class="num">Power</th>
+            <th id="(Item.VerifyHTML)" class="verify">Verify</th>
+        </tr>
+    </table>
+
+    <INPUT type="button" onclick="ViewPrev(DefTr)" class="btdoit bt" value="<< Prev">
+    <INPUT type="button" onclick="ViewNext(DefTr,5000)" class="btdoit bt" value="Next >>">
+
+</DIV>
+
+</DIV>
+
+<DIV id="idStableScroll">
+    @terafoundation
+    <!--progr76@gmail.com-->
+</DIV>
+
+</body>
+</html>
